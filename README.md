@@ -1,17 +1,31 @@
-# profile_app
+# Profile App — Assignment 1
 
-A new Flutter project.
+A Flutter profile screen built as part of **Assignment 1 (Practice)**.
 
-## Getting Started
+## 📹 Demo Video
 
-This project is a starting point for a Flutter application.
+[▶️ Watch the app demo on Google Drive](PASTE_YOUR_DRIVE_LINK_HERE)
 
-A few resources to get you started if this is your first Flutter project:
+## 📸 Screenshot
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+![Profile App Screenshot](screenshot.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 How to Run
+
+```bash
+flutter pub get
+flutter run
+```
+
+## 🛠️ Built With
+
+- **Flutter** 3.x
+- **Dart**
+- Material Design widgets
+
+## 👤 Author
+
+**Ibrahim Hassan**
+Mobile Developer
+📧 ibraposs@email.com
+📍 Galdogob, Somalia
