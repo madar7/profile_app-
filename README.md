@@ -6,10 +6,6 @@ A Flutter profile screen built as part of **Assignment 1 (Practice)**.
 
 [▶️ Watch the app demo on Google Drive](PASTE_YOUR_DRIVE_LINK_HERE)
 
-## 📸 Screenshot
-
-![Profile App Screenshot](screenshot.png)
-
 ## 🚀 How to Run
 
 ```bash
