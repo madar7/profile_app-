@@ -1,82 +1,85 @@
-// Import Material Design widgets
 import 'package:flutter/material.dart';
 
-// App entry point
 void main() => runApp(const MaterialApp(
-  debugShowCheckedModeBanner: false, // Hide debug banner
-  home: ProfilePage(), // First screen
+  debugShowCheckedModeBanner: false,
+  home: ProfilePage(),
 ));
 
-// Main Profile screen (stateless = no changing data)
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Light grey background so white cards stand out
       backgroundColor: const Color(0xFFF5F7FB),
-
-      // Top blue bar with icons
       appBar: AppBar(
         title: const Text(
           'Profile',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: Colors.blue.shade900,
-        leading: const Icon(Icons.arrow_back, color: Colors.white), // Back
+        leading: const Icon(Icons.arrow_back, color: Colors.white),
         actions: const [
-          Icon(Icons.share_outlined, color: Colors.white), // Share
+          Icon(Icons.share_outlined, color: Colors.white),
           SizedBox(width: 12),
-          Icon(Icons.edit_outlined, color: Colors.white), // Edit
+          Icon(Icons.edit_outlined, color: Colors.white),
           SizedBox(width: 12),
-          Icon(Icons.more_vert, color: Colors.white), // More menu
+          Icon(Icons.more_vert, color: Colors.white),
           SizedBox(width: 12),
         ],
       ),
-
-      // Scrollable body
       body: ListView(
-        padding: const EdgeInsets.all(16), // Space around edges
+        padding: const EdgeInsets.all(16),
         children: [
-          // Profile picture from assets folder
-          const Center(
-            child: CircleAvatar(
-              radius: 90, // Size of circle
-              backgroundImage: AssetImage('assets/my_photo.jpg'),
-              backgroundColor: Colors.white,
+          // Circular profile picture
+          Center(
+            child: Container(
+              width: 180,
+              height: 180,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.blue.shade900, width: 3),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.12),
+                    blurRadius: 12,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: const CircleAvatar(
+                radius: 90,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('assets/my_photo.jpg'),
+              ),
             ),
           ),
-          const SizedBox(height: 16), // Space below image
-
-          // Name
+          const SizedBox(height: 16),
           const Text(
             'ibroz Hassan',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF0B3B7A), // Brand blue
+              color: Color(0xFF0B3B7A),
             ),
           ),
-
-          // Job title
           const Text(
             'Mobile Developer',
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.grey, fontSize: 14),
           ),
           const SizedBox(height: 24),
-
-          // Info cards — email, phone, location
           _card(Icons.email, Colors.blue, 'Email', 'ibraposs@email.com'),
           _card(Icons.phone, Colors.green, 'Phone', '+252 907 730868'),
-          _card(Icons.location_on, Colors.redAccent, 'Location',
-              'Galdogob, Somalia'),
+          _card(
+            Icons.location_on,
+            Colors.redAccent,
+            'Location',
+            'Galdogob, Somalia',
+          ),
           const SizedBox(height: 28),
-
-          // Contact Me button (with send icon)
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue.shade700,
@@ -86,7 +89,11 @@ class ProfilePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14),
               ),
             ),
-            onPressed: () {}, // Nothing happens when clicked yet
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Opening contact…')),
+              );
+            },
             icon: const Icon(Icons.send_rounded),
             label: const Text(
               'Contact Me',
@@ -98,39 +105,40 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  // Reusable card for Email / Phone / Location rows
   Widget _card(IconData icon, Color color, String label, String value) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12), // Space between cards
+      margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.grey.shade200),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         children: [
-          // Coloured icon square
           Container(
             width: 44,
             height: 44,
             decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.12), // Soft tint
+              color: color,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(icon, color: color, size: 22),
+            child: Icon(icon, color: Colors.white, size: 22),
           ),
           const SizedBox(width: 14),
-
-          // Label + value
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   label,
-                  style:
-                  TextStyle(color: Colors.grey.shade600, fontSize: 12),
+                  style: TextStyle(color: Colors.grey.shade600, fontSize: 12),
                 ),
                 const SizedBox(height: 2),
                 Text(
@@ -144,8 +152,6 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
           ),
-
-          // Chevron on the right
           Icon(Icons.chevron_right, color: Colors.grey.shade400),
         ],
       ),
