@@ -11,17 +11,3 @@ A Flutter profile screen built as part of **Assignment 1 (Practice)**.
 ```bash
 flutter pub get
 flutter run
-```
-
-## 🛠️ Built With
-
-- **Flutter** 3.x
-- **Dart**
-- Material Design widgets
-
-## 👤 Author
-
-**Ibrahim Hassan**
-Mobile Developer
-📧 ibraposs@email.com
-📍 Galdogob, Somalia
